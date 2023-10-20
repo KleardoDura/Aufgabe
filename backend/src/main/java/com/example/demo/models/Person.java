@@ -15,14 +15,14 @@ public class Person {
     private String lastname;
 
     @Column(name = "year_of_birth")
-    private Date yearOfBirth;
+    private Integer yearOfBirth;
     @Column(name = "address_id")
     private Integer addressId;
 
     public Person() {
     }
 
-    public Person(Integer id, String firstname, String lastname, Date yearOfBirth, Integer addressId) {
+    public Person(Integer id, String firstname, String lastname, Integer yearOfBirth, Integer addressId) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -54,11 +54,11 @@ public class Person {
         this.lastname = lastname;
     }
 
-    public Date getYearOfBirth() {
+    public Integer getYearOfBirth() {
         return yearOfBirth;
     }
 
-    public void setYearOfBirth(Date yearOfBirth) {
+    public void setYearOfBirth(Integer yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
     }
 

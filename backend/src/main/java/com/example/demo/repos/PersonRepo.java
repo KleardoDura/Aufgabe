@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 
 public interface PersonRepo  extends JpaRepository<Person,Integer> {
-    @Query(value="SELECT * FROM person w WHERE w.year_of_birth=: yearOfBirth", nativeQuery = true)
-    List<Person> findPeopleByYearOfBirth(@Param("yearOfBirth") Date yearOfBirth);
+    @Query(value="SELECT * FROM person w WHERE w.year_of_birth=:yearOfBirth", nativeQuery = true)
+    List<Person> findPeopleByYearOfBirth(@Param("yearOfBirth") Integer yearOfBirth);
+
+    @Query(value="SELECT * FROM person w WHERE w.address_id=:addressId", nativeQuery = true)
+    List<Person> findPeopleByAddressId(@Param("addressId") Integer addressId);
 }
