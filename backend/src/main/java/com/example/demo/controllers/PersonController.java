@@ -13,9 +13,15 @@ import java.util.List;
 public class PersonController {
     @Autowired
     private PersonService personService;
-
-    @GetMapping("/{yearOfBirth}")
+    // filter people by year of birth.
+    @GetMapping("/people-by-year-of-birth/{yearOfBirth}")
     public List<Person> findPeopleByYearOfBirth (@PathVariable Integer yearOfBirth){
         return  personService.filterPeopleByYearOfBirth(yearOfBirth);
+    }
+
+    // search for people by city
+    @GetMapping("/people-by-city/{city}")
+    public List<Person> findPeopleByYearOfBirth (@PathVariable String city){
+        return  personService.findPeopleByCity(city);
     }
 }
