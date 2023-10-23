@@ -24,4 +24,9 @@ public class PersonController {
     public List<Person> findPeopleByYearOfBirth (@PathVariable String city){
         return  personService.findPeopleByCity(city);
     }
+    @GetMapping("average/{yearOfBirth}")
+    public  Integer calculateAverageAgeOfThePeopleFound(@PathVariable Integer yearOfBirth){
+        //If this method returns 0 it means that there is no people with year of birth greater then the year given.
+        return personService.calculateAverageAgeOfThePeopleFound(yearOfBirth);
+    }
 }

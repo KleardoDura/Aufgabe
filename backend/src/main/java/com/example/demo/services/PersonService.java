@@ -8,6 +8,7 @@ import org.aspectj.weaver.patterns.PerObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,5 +27,18 @@ public class PersonService {
     public List<Person> findPeopleByCity(String city){
         Integer addressId= addressRepo.findAddressIdByCity(city);
         return personRepo.findPeopleByAddressId(addressId);
+    }
+
+    //The average age of the people found should be calculated based on the previously
+    //implemented birth year filter method.
+    public Integer calculateAverageAgeOfThePeopleFound(Integer yearOfBirth){
+        List<Person> people=filterPeopleByYearOfBirth(yearOfBirth);
+        Integer sum=0;
+        if(people.size()==0) return 0;
+        //else
+        for(Person person: people){
+            sum+= ( LocalDate.now().getYear()-person.getYearOfBirth());
+        }
+        return  sum/people.size();
     }
 }

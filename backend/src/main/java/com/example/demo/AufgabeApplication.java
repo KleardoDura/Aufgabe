@@ -17,6 +17,7 @@ public class AufgabeApplication {
 	}
 	@Bean
 	CommandLineRunner run(AddressRepo addressRepo , PersonRepo personRepo){
+		//some hard-coded data
 		return args ->{
 			Person person1=new Person();
 			person1.setFirstname("John");
